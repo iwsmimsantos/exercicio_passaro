@@ -38,6 +38,9 @@ height: 600,
 
 var game = new Phaser.Game(config);
 
+//criação variável passarinho
+var passarinho;
+
 function preload() {
     // carregar fundo
     this.load.image('bg', 'assets/bg_space.png');
@@ -47,7 +50,17 @@ function preload() {
 function create() {
     //adicionar fundo na tela com tamanho específico
     this.add.image(400, 300, 'bg').setScale(1.2);
-    this.add.sprite(100, 300, 'bird').setScale(1.3);
+    passarinho = this.add.sprite(100, 300, 'bird').setScale(1.3);
+    
+    this.anims.create({
+        key: 'fly',
+        frame: this.anims.generateFrameNumbers('bird', {start: 0, end: 7 }),
+        frameRate: 10,
+        repeat: -1
+    });
+
+    passarinho.anims.play('fly', true);
+
 
 }
 
