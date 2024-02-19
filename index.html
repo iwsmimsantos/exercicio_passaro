@@ -17,7 +17,7 @@
 <body>
 
 <script>
-    // escrevendo o código (JS + Phaser) aqui dentro!
+  // escrevendo o código (JS + Phaser) aqui dentro!
 
   // conjunto de configurações básicas do nosso jogo. 
   var config = {
@@ -89,8 +89,31 @@ function update() {
         console.log("Se o passarinho não tiver chegado de volta ao ponto inicial, andar mais para esquerda");
         passarinho.x -=5;
     }
+
+    if (passarinho.y === 100) {
+        passarinho.setFlip(false, false);
+        passarinho.ida = true;
+    }
+
+    // Se o passarinho não tiver chegado ainda no ponto final (700), andar mais para cima
+    if (passarinho.y < 700 && passarinho.ida === true) {
+        console.log("Se o passarinho não tiver chegado ainda no ponto final (700), andar mais para direita");
+        passarinho.y +=15;
+    }
+
+    // Se o passarinho chegar no ponto final (700), iniciar volta
+    if (passarinho.y === 700) {
+        passarinho.setFlip(true, false);
+        passarinho.ida = false;
+    }
+
+    // Se o passarinho não tiver chegado de volta ao ponto inicial, andar mais para baixo
+    if (passarinho.y > 100 && passarinho.ida === false) {
+        console.log("Se o passarinho não tiver chegado de volta ao ponto inicial, andar mais para esquerda");
+        passarinho.y -=15;
+    }
 }
-//
+
 </script>
 
 </body>
