@@ -38,7 +38,7 @@ height: 600,
 
 var game = new Phaser.Game(config);
 
-//criação variável passarinho
+// criação variável passarinho
 var passarinho;
 
 function preload() {
@@ -48,7 +48,7 @@ function preload() {
 }
 
 function create() {
-    //adicionar fundo na tela com tamanho específico
+    // adicionar fundo na tela com tamanho específico
     this.add.image(400, 300, 'bg').setScale(1.2);
     passarinho = this.add.sprite(100, 300, 'bird').setScale(1.3);
     
